@@ -1,0 +1,23 @@
+.venv
+.DS_Store
+__pycache__
+
+# Python artifacts
+*.pyc
+.pytest_cache/
+
+# Local secrets
+.env
+.env.*
+
+# Docker runtime artifacts and large local assets
+docker/**/data/
+docker/**/logs/
+docker/**/*.log
+docker/**/*.zip
+
+# Local embedding model cache/weights (download at runtime or mount externally)
+docker/embedding/**/.cache/
+docker/embedding/**/pytorch_model.bin
+docker/embedding/**/tokenizer.json
+docker/embedding/**/vocab.txt
