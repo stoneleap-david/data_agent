@@ -1,0 +1,19 @@
+[MASTER]
+# Make pylint resolve dependencies from the project's .venv.
+init-hook=
+    import sys
+    from pathlib import Path
+    root = Path.cwd()
+    candidates = sorted((root / ".venv" / "lib").glob("python*/site-packages"))
+    if candidates:
+        sys.path.insert(0, str(candidates[-1]))
+
+[MESSAGES CONTROL]
+# Keep import checks enabled; the init-hook above should fix false E0401.
+disable=
+    C0114,
+    C0115,
+    C0116
+
+[TYPECHECK]
+ignored-modules=elasticsearch
